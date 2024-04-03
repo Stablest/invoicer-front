@@ -8,6 +8,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     errorElement: <NotFound></NotFound>,
+    element: ,
     children: [
       {
         path: "login",
@@ -24,6 +25,6 @@ const router = createBrowserRouter([
     ]
   },
 
-]);
+], { basename: '/' });
 
 export { router };
