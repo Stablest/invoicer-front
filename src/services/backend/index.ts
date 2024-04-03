@@ -1,4 +1,4 @@
-import { isResponseOK } from "../../utils/isResponseOK";
+import { isResponseOK } from "../../utils/is-response-ok";
 
 const baseURL = import.meta.env.VITE_HOST;
 if (!!!baseURL) {

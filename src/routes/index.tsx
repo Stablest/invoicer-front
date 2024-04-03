@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import { Login } from "../pages/Auth/Login";
-import { Register } from "../pages/Auth/Register";
-import { Dashboard } from "../pages/Dashboard";
+import { Login } from "../pages/auth/login";
+import { Register } from "../pages/auth/register";
+import { Dashboard } from "../pages/dashboard";
 import { NotFound } from "../pages/not-found";
 
 const router = createBrowserRouter([
