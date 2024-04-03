@@ -1,0 +1,22 @@
+services:
+  invoicer-front-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    ports:
+      - 5173:5173
+    env_file:
+      - .env
+    develop:
+      watch:
+        - action: sync
+          path: ./
+          target: ./app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
+
+networks:
+  network-dev:
