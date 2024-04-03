@@ -1,15 +1,18 @@
-import { createBrowserRouter } from "react-router-dom";
-import { Login } from "./Auth/Login";
-import { Register } from "./Auth/Register";
-import { Dashboard } from "./Dashboard";
-import { NotFound } from "./not-found";
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import { Login } from "../pages/Auth/Login";
+import { Register } from "../pages/Auth/Register";
+import { Dashboard } from "../pages/Dashboard";
+import { NotFound } from "../pages/not-found";
 
 const router = createBrowserRouter([
   {
     path: '/',
     errorElement: <NotFound></NotFound>,
-    element: ,
     children: [
+      {
+        index: true,
+        element: <Navigate to={'/login'}></Navigate>,
+      },
       {
         path: "login",
         element: <Login></Login>,
