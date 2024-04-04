@@ -15,7 +15,7 @@ const useAuth = () => {
                 const response = await refreshToken()
                 setIsLoading(false)
                 if (!response) {
-                    setIsAuthenticated(false)
+                    return setIsAuthenticated(false)
                 }
             }
             setIsLoading(false)

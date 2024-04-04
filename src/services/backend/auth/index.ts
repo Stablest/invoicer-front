@@ -1,5 +1,5 @@
 import { backendFetch } from "..";
-import { handleError } from "../../../utils/handle-error";
+import { handleError } from "../../../utils/functions/handle-error";
 
 const refreshToken = async () => {
   try {
