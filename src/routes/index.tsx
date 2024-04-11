@@ -1,30 +1,45 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Login } from "../pages/auth/login";
-import { Register } from "../pages/auth/register";
+import { Login } from "../pages/login";
+import { Register } from "../pages/register";
 import { Dashboard } from "../pages/dashboard";
 import { NotFound } from "../pages/not-found";
-import { PrivateRoute } from "./PrivateRoutes";
+import { Root } from "./RootRoute";
+import { PrivateRoute } from "./PrivateRoute";
+import { AuthRoute } from "./AuthRoute";
+
 
 const router = createBrowserRouter([
   {
     path: '/',
     errorElement: <NotFound></NotFound>,
-    Component: PrivateRoute,
+    Component: Root,
     children: [
       {
-        path: 'dashboard',
-        element: <Dashboard></Dashboard>
+        path: "auth",
+        Component: AuthRoute,
+        children: [
+          {
+            path: "login",
+            element: <Login></Login>,
+          },
+          {
+            path: "register",
+            element: <Register></Register>,
+          },
+        ]
       },
+
+      {
+        Component: PrivateRoute,
+        children: [
+          {
+            path: 'dashboard',
+            element: <Dashboard></Dashboard>
+          },
+        ]
+      }
     ]
   },
-  {
-    path: "login",
-    element: <Login></Login>,
-  },
-  {
-    path: "register",
-    element: <Register></Register>,
-  }
 ]);
 
 export { router };
