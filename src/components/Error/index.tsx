@@ -1,12 +1,12 @@
-import { HTMLAttributes, ReactNode } from "react"
+import { HTMLAttributes } from "react"
 
 export interface ErrorProps {
-    children: ReactNode
+    errorMessage?: string
 }
 
-const Error = ({ children, className, ...rest }: ErrorProps & HTMLAttributes<HTMLDivElement>) => {
+const Error = ({ errorMessage, className, ...rest }: ErrorProps & HTMLAttributes<HTMLDivElement>) => {
     return (
-        <div className="text-red-400 text-sm font-medium" {...rest} >{children}</div>
+        <div className="text-red-400 text-sm font-medium" {...rest} >{errorMessage}</div>
     )
 }
 
