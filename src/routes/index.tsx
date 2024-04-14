@@ -1,7 +1,7 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import { Login } from "../pages/login";
 import { Register } from "../pages/register";
-import { Dashboard } from "../pages/dashboard";
+import { Dashboard } from "../pages/Dashboard";
 import { NotFound } from "../pages/not-found";
 import { Root } from "./RootRoute";
 import { PrivateRoute } from "./PrivateRoute";
@@ -15,12 +15,18 @@ const router = createBrowserRouter([
     Component: Root,
     children: [
       {
-        path: "auth",
+        path: '/',
+        element: <Navigate to={'/dashboard'}></Navigate>,
+        index: true,
+      },
+      {
+        path: "/",
         Component: AuthRoute,
         children: [
           {
             path: "login",
             element: <Login></Login>,
+            index: true,
           },
           {
             path: "register",
@@ -28,7 +34,6 @@ const router = createBrowserRouter([
           },
         ]
       },
-
       {
         Component: PrivateRoute,
         children: [
@@ -36,6 +41,10 @@ const router = createBrowserRouter([
             path: 'dashboard',
             element: <Dashboard></Dashboard>
           },
+          {
+            path: 'test',
+            element: <div>Test</div>
+          }
         ]
       }
     ]

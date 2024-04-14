@@ -10,7 +10,7 @@ const PrivateRoute = () => {
     useEffect(() => {
         if (!isLoading) {
             if (!isAuthenticated) {
-                return navigate('/auth/login')
+                return navigate('/login')
             }
         }
     }, [isAuthenticated, isLoading])
