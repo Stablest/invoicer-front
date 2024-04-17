@@ -6,7 +6,7 @@ export interface MainProps {
 
 const Main = ({ children }: MainProps) => {
     return (
-        <main className="w-full h-full">
+        <main className="w-full h-full box-border">
             {children}
         </main>
     )

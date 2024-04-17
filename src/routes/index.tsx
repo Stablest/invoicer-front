@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { Login } from "../pages/login";
 import { Register } from "../pages/register";
-import { Dashboard } from "../pages/Dashboard";
+import { Dashboard } from "../pages/dashboard";
 import { NotFound } from "../pages/not-found";
 import { Root } from "./RootRoute";
 import { PrivateRoute } from "./PrivateRoute";

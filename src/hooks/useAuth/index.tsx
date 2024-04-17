@@ -4,9 +4,14 @@ import { useRefreshToken } from "../queries/auth/useRefreshToken"
 
 const useAuth = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
-    const [cookies] = useCookies(['jwt_at', 'jwt_rt'])
+    const [cookies, _, removeCookie] = useCookies(['jwt_at', 'jwt_rt'])
     const [isLoading, setIsLoading] = useState(true);
     useRefreshToken(cookies.jwt_at, cookies.jwt_rt)
+
+    const logout = () => {
+        removeCookie("jwt_rt");
+        removeCookie("jwt_at");
+    }
 
     useEffect(() => {
         const auth = async () => {
@@ -21,7 +26,7 @@ const useAuth = () => {
         }
         auth()
     }, [cookies])
-    return { isAuthenticated, isLoading }
+    return { isAuthenticated, isLoading, logout }
 }
 
 export { useAuth }

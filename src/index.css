@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 @layer base {
+
+  *, *::before, *::after {
+    @apply box-border
+  }
+
+  body {
+    @apply box-border
+  }
+
   h1 {
     @apply text-3xl;
   }
